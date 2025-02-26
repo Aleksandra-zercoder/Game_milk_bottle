@@ -1,7 +1,6 @@
 import pygame
 import random
 
-<<<<<<< Updated upstream
 def main():
     pygame.init()
     screen = pygame.display.set_mode((800, 600))
@@ -11,7 +10,7 @@ def main():
     running = True
     while running:
         clock.tick(60)
-=======
+
 # --- Константы ---
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -36,7 +35,6 @@ def play_game(screen, clock, bottle_img, crosshair_img):
         if elapsed_sec >= GAME_TIME:
             running = False
 
->>>>>>> Stashed changes
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -49,9 +47,8 @@ def play_game(screen, clock, bottle_img, crosshair_img):
                     new_y = random.randint(0, SCREEN_HEIGHT - bottle_rect.height)
                     bottle_rect.topleft = (new_x, new_y)
 
-<<<<<<< Updated upstream
         screen.fill((30, 30, 30))
-=======
+
         screen.fill(BG_COLOR)
         screen.blit(bottle_img, bottle_rect.topleft)
 
@@ -67,7 +64,13 @@ def play_game(screen, clock, bottle_img, crosshair_img):
         crosshair_rect = crosshair_img.get_rect(center=(mouse_x, mouse_y))
         screen.blit(crosshair_img, crosshair_rect)
 
->>>>>>> Stashed changes
+
+        # Отрисовка кастомного курсора
+        mouse_x, mouse_y = pygame.mouse.get_pos()
+        # Центрируем изображение прицела на позицию мыши
+        crosshair_rect = crosshair_img.get_rect(center=(mouse_x, mouse_y))
+        screen.blit(crosshair_img, crosshair_rect)
+
         pygame.display.flip()
     return score
 
